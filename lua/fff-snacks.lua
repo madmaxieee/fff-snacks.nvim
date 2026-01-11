@@ -155,7 +155,16 @@ M.source = {
   live = true,
 }
 
-function M.setup()
+---@class FFFSnacksConfig
+---@field title? string Picker title (default: "FFFiles")
+
+---@param opts? FFFSnacksConfig
+function M.setup(opts)
+  opts = opts or {}
+  if opts.title then
+    M.source.title = opts.title
+  end
+
   if Snacks and pcall(require, "snacks.picker") then
     -- Users can call Snacks.picker.fff() after this
     Snacks.picker.sources.fff = require("fff-snacks").source
