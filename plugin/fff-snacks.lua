@@ -1,7 +1,7 @@
 local init = vim.schedule_wrap(function()
   if Snacks and pcall(require, "snacks.picker") then
     -- Users can call Snacks.picker.fff() after this
-    Snacks.picker.sources.fff = require("fff-snacks").source
+    Snacks.picker.sources.fff = require("fff-snacks.find_files").source
   end
 end)
 
@@ -18,7 +18,7 @@ end
 
 vim.api.nvim_create_user_command("FFFSnacks", function()
   if Snacks and pcall(require, "snacks.picker") then
-    Snacks.picker(require("fff-snacks").source)
+    Snacks.picker(require("fff-snacks.find_files").source)
   else
     vim.notify("fff-sncaks: Snacks is not loaded", vim.log.levels.ERROR)
   end

@@ -1,3 +1,5 @@
+-- maps to require("fff").find_files()
+
 local M = {}
 
 local conf = require "fff.conf"
