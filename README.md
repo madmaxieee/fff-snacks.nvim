@@ -8,7 +8,9 @@ A [snacks.nvim](https://github.com/folke/snacks.nvim) source for [fff.nvim](http
 {
   {
     "dmtrKovalenko/fff.nvim",
-    build = "cargo build --release",
+    build = function()
+      require("fff.download").download_or_build_binary()
+    end,
     lazy = false, -- make fff initialize on startup
   },
 
@@ -18,6 +20,7 @@ A [snacks.nvim](https://github.com/folke/snacks.nvim) source for [fff.nvim](http
       "dmtrKovalenko/fff.nvim",
       "folke/snacks.nvim",
     },
+    lazy = false, -- no setup required, lazy loaded by design
     cmd = "FFFSnacks",
     keys = {
       {
@@ -26,7 +29,6 @@ A [snacks.nvim](https://github.com/folke/snacks.nvim) source for [fff.nvim](http
         desc = "FFF",
       },
     },
-    config = true,
   },
 }
 ```

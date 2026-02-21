@@ -155,20 +155,4 @@ M.source = {
   live = true,
 }
 
-function M.setup()
-  if Snacks and pcall(require, "snacks.picker") then
-    -- Users can call Snacks.picker.fff() after this
-    Snacks.picker.sources.fff = require("fff-snacks").source
-  end
-  vim.api.nvim_create_user_command("FFFSnacks", function()
-    if Snacks and pcall(require, "snacks.picker") then
-      Snacks.picker(require("fff-snacks").source)
-    else
-      vim.notify("fff-sncaks: Snacks is not loaded", vim.log.levels.ERROR)
-    end
-  end, {
-    desc = "Open FFF in snacks picker",
-  })
-end
-
 return M
