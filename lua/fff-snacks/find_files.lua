@@ -102,7 +102,7 @@ M.source = {
       ---@type snacks.picker.finder.Item
       local item = {
         text = fff_item.name,
-        file = fff_item.path,
+        file = fff_item.relative_path,
         score = fff_item.total_frecency_score,
         -- HACK: in original snacks implementation status is a string of
         -- `git status --porcelain` output
